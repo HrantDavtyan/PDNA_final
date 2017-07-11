@@ -44,8 +44,8 @@ function(input,output,session) {
       for(con in all_cons)
         dbDisconnect(con)
 
-      mydb <<- dbConnect(MySQL(), user='pdnaahos_hrant',password='DiliJan7',dbname='pdnaahos_pdna', host='pdna.a2hosted.com')
-      #mydb <<- dbConnect(MySQL(), user='root',dbname='pdna', host='127.0.0.1')
+      #mydb <<- dbConnect(MySQL(), user='pdnaahos_hrant',password='DiliJan7',dbname='pdnaahos_pdna', host='pdna.a2hosted.com')
+      mydb <<- dbConnect(MySQL(), user='root',dbname='pdna', host='127.0.0.1')
 
     }
     return (mydb)
