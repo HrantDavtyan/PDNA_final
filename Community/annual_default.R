@@ -23,7 +23,7 @@ observeEvent(input$default, {
     repl = 0
   }
   
-  query <- paste("SELECT * FROM Defaults WHERE marz_ID='", marz_id, "'", sep = "")
+  query <- paste("SELECT * FROM defaults WHERE marz_ID='", marz_id, "'", sep = "")
   rs <- dbGetQuery(mydb, query)
   N6 = rs["St_y_inc"][,1]
   P6 = rs["Rep_inc"][,1]

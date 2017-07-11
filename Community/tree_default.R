@@ -21,7 +21,7 @@ observeEvent(input$default_tree, {
   recover_tree = formData()$recover_tree
   share_red = formData()$reduction_tree
   
-  query <- paste("SELECT * FROM Defaults WHERE marz_ID='", marz_id, "'", sep = "")
+  query <- paste("SELECT * FROM defaults WHERE marz_ID='", marz_id, "'", sep = "")
   rs <- dbGetQuery(mydb, query)
   P6 = rs["St_y_inc"][,1]
   Q6 = rs["Rep_cost"][,1]

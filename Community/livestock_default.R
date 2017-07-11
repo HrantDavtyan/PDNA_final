@@ -19,7 +19,7 @@ observeEvent(input$default_livestock, {
   injury_livestock = formData()$injury_livestock
   
   
-  query <- paste("SELECT * FROM Defaults WHERE marz_ID='", marz_id, "'", sep = "")
+  query <- paste("SELECT * FROM defaults WHERE marz_ID='", marz_id, "'", sep = "")
   rs <- dbGetQuery(mydb, query)
   O6 = rs["St_y_inc"][,1]
   N6 = rs["Rep_cost"][,1]
