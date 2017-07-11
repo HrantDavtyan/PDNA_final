@@ -44,8 +44,8 @@ function(input,output,session) {
       for(con in all_cons)
         dbDisconnect(con)
 
-      #mydb <<- dbConnect(MySQL(), user='pdnaahos_hrant',password='DiliJan7',dbname='pdnaahos_pdna', host='pdna.a2hosted.com')
-      mydb <<- dbConnect(MySQL(), user='root',dbname='pdna', host='127.0.0.1')
+      mydb <<- dbConnect(MySQL(), user='pdnaahos_hrant',password='DiliJan7',dbname='pdnaahos_pdna', host='pdna.a2hosted.com')
+      #mydb <<- dbConnect(MySQL(), user='root',dbname='pdna', host='127.0.0.1')
 
     }
     return (mydb)
@@ -158,6 +158,7 @@ function(input,output,session) {
     'Farmer name','Community','Disaster'),
     options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
       input$default || input$custom_crop
+      refresh_table(effecto="an_cr_entry")
       responses[nrow(responses),c(6:length(responses))]
     })
   output$tree_inputs_table <- renderDataTable(
