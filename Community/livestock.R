@@ -1,0 +1,17 @@
+tabPanel("Livestock",div(id="reset_inputs_livestock",
+         selectizeInput("livestock", "Select type",choices = livestock_list,
+                        options = list(create = TRUE,placeholder = "Which type of livestock was affected?")),
+         conditionalPanel(condition ="input.livestock!=''",
+                          fluidRow(column(6,numericInput("age_ivestock","Age",min=0, value = 0)),
+                                   column(6,numericInput("weight_livestock","Weight",min = 0, value = 0))),
+                          fluidRow(column(6,numericInput("lost_livestock", "Units lost", min = 0, value = 0))),
+                          fluidRow(column(6,numericInput("injured_livestock","Units Injured",min = 0, value = 0)),
+                                   conditionalPanel(condition ="input.injured_livestock > 0",
+                                                    column(6, sliderInput("injury_livestock","Share of Reduction in Yield",
+                                                                          min = 0, step = 5, max = 100, value = 75)))),
+                          fluidRow(column(2,actionButton("default_livestock","Use Defaults",
+                                                         style = "background-color: #337ab7; border-color: #2e6da4;
+                                                         color: white")),
+                                   column(2,actionButton("create_custom_livestock","Create Custom",
+                                                         style = "background-color: orange; border-color: orange;
+                                                         color: white"))))))
