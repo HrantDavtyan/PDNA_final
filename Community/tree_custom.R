@@ -36,7 +36,7 @@ observeEvent(input$custom_tree, {
   loss = (I6*(P6*K6/100)*J6)+(R6*I6*J6)+(G6*H6*P6)
   damages =(G6*Q6)
   
-  query <- paste0("INSERT INTO tree_Entry (fermer_ID, effect,Com_ID,crop_name,measure_unit,
+  query <- paste0("INSERT INTO tree_entry (fermer_ID, effect,Com_ID,crop_name,measure_unit,
                   Disaster_event_id,age,lost,years_rep,units_red,years_rec,share_red,
                   St_y_inc,Rep_cost,Rec_cost,reason,damages,loss) 
                   VALUES(",ferm_id,",'",affect,"',", com_id,",'",crop,"','",unit,"',

@@ -35,7 +35,7 @@ observeEvent(input$default_livestock, {
   
   
   
-  query <- paste0("INSERT INTO livestock_Entry (fermer_ID, effect,Com_ID,livestock_type,age,
+  query <- paste0("INSERT INTO livestock_entry (fermer_ID, effect,Com_ID,livestock_type,age,
                   Disaster_event_id,weight,units_lost,units_injured,red_share,
                   St_y_inc,Repl_cost,Rec_cost,damages,loss) 
                   VALUES(",ferm_id,",'",affect,"',", com_id,",'",livestock,"','",age_livestock,"',

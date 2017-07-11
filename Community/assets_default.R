@@ -26,7 +26,7 @@ observeEvent(input$default_asset, {
   
   
   
-  query <- paste0("INSERT INTO asset_Entry (fermer_ID, effect,Com_ID,asset_type,measure_unit,
+  query <- paste0("INSERT INTO asset_entry (fermer_ID, effect,Com_ID,asset_type,measure_unit,
                   Disaster_event_id,units_affected,repl_cost,repr_cost,damages,loss) 
                   VALUES(",ferm_id,",'",affect,"',", com_id,",'",asset,"','",unit_asset,"',
                   ",dis_ev_id,",",affected_asset ,",",replcost_asset,",",reprcost_asset,",

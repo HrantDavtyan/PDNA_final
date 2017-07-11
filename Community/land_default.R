@@ -37,7 +37,7 @@ observeEvent(input$default_land, {
   
   
   
-  query <- paste0("INSERT INTO land_Entry (fermer_ID, effect,Com_ID,land,measure_unit,Disaster_event_id,
+  query <- paste0("INSERT INTO land_entry (fermer_ID, effect,Com_ID,land,measure_unit,Disaster_event_id,
                   all_units,damaged_units,damage_share,repl_cost,repr_cost,damages,loss) 
                   VALUES(",ferm_id,",'",affect,"',", com_id,",'",land,"','",unit,"',",dis_ev_id,",
                   ",all_units,",",damaged_units,",",damage_share,",",repl_cost,",",repr_cost,",",damages,",",loss,")")

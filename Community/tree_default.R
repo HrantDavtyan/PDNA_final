@@ -38,7 +38,7 @@ observeEvent(input$default_tree, {
   
   
   
-  query <- paste0("INSERT INTO tree_Entry (fermer_ID, effect,Com_ID,crop_name,measure_unit,
+  query <- paste0("INSERT INTO tree_entry (fermer_ID, effect,Com_ID,crop_name,measure_unit,
                   Disaster_event_id,age,lost,years_rep,units_red,years_rec,share_red,
                   St_y_inc,Rep_cost,Rec_cost,damages,loss) 
                   VALUES(",ferm_id,",'",affect,"',", com_id,",'",crop,"','",unit,"',

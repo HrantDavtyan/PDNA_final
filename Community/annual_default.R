@@ -42,7 +42,7 @@ observeEvent(input$default, {
   damages = 0
   
   
-  query <- paste0("INSERT INTO an_cr_Entry (fermer_ID, effect,Com_ID,crop_name,measure_unit,lost,reduced,
+  query <- paste0("INSERT INTO an_cr_entry (fermer_ID, effect,Com_ID,crop_name,measure_unit,lost,reduced,
                   Disaster_event_id,Rep_pos,share_red,St_y_inc,Rep_inc,Rep_cost,Rec_cost,loss,damages) 
                   VALUES(",ferm_id,",'",affect,"',", com_id,",'",crop,"','",unit,"',",lost,",",reduced ,",
                   ",dis_ev_id,",",repl,",",share_red,",",N6,",",P6,",",O6,",",Q6,",",loss,",",damages,")")
