@@ -147,41 +147,40 @@ function(input,output,session) {
   source("livestock_custom.R",local=TRUE)
 
   # handling the input viewer table
-  # output$view_results <- renderHtable({
-  #   input$default || input$default_tree || input$default_land || input$default_asset || input$default_livestock || input$custom_crop || input$custom_tree || input$custom_livestock
-  #   responses[nrow(responses),c(11:length(responses)-5,length(responses)-2,length(responses)-1,length(responses))]
-  # })
-  
-
-  # output$annual_inputs_table <- renderDataTable(
-  #   colnames = c('Crop', 'Unit', 'Lost', 'Reduced', 'Replanting Possible?',
-  #   'Share of reduction', 'Std yearly income', 'Replanting income',
-  #   'Replanting cost','Recovery cost','Reason for custom','Losses','Damages',
-  #   'Farmer name','Community','Disaster'),
-  #   options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
-  #     input$default || input$custom_crop
-  #     responses[nrow(responses),c(6:length(responses))]
-  #   })
-  # output$tree_inputs_table <- renderDataTable(
-  #   options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
-  #     input$default_tree || input$custom_tree
-  #     responses[nrow(responses),c(6:length(responses))]
-  #   })
-  # output$livestock_inputs_table <- renderDataTable(
-  #   options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
-  #     input$default_livestock || input$custom_livestock
-  #     responses[nrow(responses),c(6:length(responses))]
-  #   })
-  # output$assets_inputs_table <- renderDataTable(
-  #   options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
-  #     input$default_asset
-  #     responses[nrow(responses),c(6:length(responses))]
-  #   })
-  # output$lands_inputs_table <- renderDataTable(
-  #   options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
-  #     input$default_land
-  #     responses[nrow(responses),c(6:length(responses))]
-  #   })
+  output$annual_inputs_table <- renderDataTable(
+    colnames = c('Crop', 'Unit', 'Lost', 'Reduced', 'Replanting Possible?',
+    'Share of reduction', 'Std yearly income', 'Replanting income',
+    'Replanting cost','Recovery cost','Reason for custom','Losses','Damages',
+    'Farmer name','Community','Disaster'),
+    options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
+      input$default || input$custom_crop
+      if(exists("responses")){
+      responses[nrow(responses),c(6:length(responses))]}
+    })
+  output$tree_inputs_table <- renderDataTable(
+    options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
+      input$default_tree || input$custom_tree
+      if(exists("responses")){
+      responses[nrow(responses),c(6:length(responses))]}
+    })
+  output$livestock_inputs_table <- renderDataTable(
+    options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
+      input$default_livestock || input$custom_livestock
+      if(exists("responses")){
+      responses[nrow(responses),c(6:length(responses))]}
+    })
+  output$assets_inputs_table <- renderDataTable(
+    options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
+      input$default_asset
+      if(exists("responses")){
+      responses[nrow(responses),c(6:length(responses))]}
+    })
+  output$lands_inputs_table <- renderDataTable(
+    options=list(searching = FALSE, paging = FALSE, info=0,scrollX = T),{
+      input$default_land
+      if(exists("responses")){
+      responses[nrow(responses),c(6:length(responses))]}
+    })
 
   # designing the DataTable to show the Damage/Loss sum
   sketch = htmltools::withTags(table(
