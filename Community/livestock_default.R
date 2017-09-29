@@ -12,8 +12,6 @@ observeEvent(input$default_livestock, {
   
   affect = input$type_tab
   livestock = formData()$livestock
-  age_livestock = formData()$age_livestock
-  weight_livestock = formData()$weight_livestock
   lost_livestock = formData()$lost_livestock
   injured_livestock = formData()$injured_livestock
   injury_livestock = formData()$injury_livestock
@@ -35,11 +33,11 @@ observeEvent(input$default_livestock, {
   
   
   
-  query <- paste0("INSERT INTO livestock_entry (fermer_ID, effect,Com_ID,livestock_type,age,
-                  Disaster_event_id,weight,units_lost,units_injured,red_share,
+  query <- paste0("INSERT INTO livestock_entry (fermer_ID, effect,Com_ID,livestock_type,
+                  Disaster_event_id,units_lost,units_injured,red_share,
                   St_y_inc,Repl_cost,Rec_cost,damages,loss) 
-                  VALUES(",ferm_id,",'",affect,"',", com_id,",'",livestock,"','",age_livestock,"',
-                  ",dis_ev_id,",",weight_livestock,",",lost_livestock,",",injured_livestock,",",injury_livestock,",
+                  VALUES(",ferm_id,",'",affect,"',", com_id,",'",livestock,"','",dis_ev_id,",",
+                  lost_livestock,",",injured_livestock,",",injury_livestock,",
                   ",O6,",",N6,",",P6,",",damages,",",loss,")")
   print(query)
   dbGetQuery(mydb, query)

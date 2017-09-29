@@ -14,7 +14,6 @@ observeEvent(input$default_tree, {
   crop = formData()$trees
   unit = formData()$unit_tree
   lost = formData()$lost_tree
-  age = formData()$age_tree
   replacement_tree = formData()$replacement_tree
   
   reduced_tree = formData()$reduced_tree
@@ -39,10 +38,10 @@ observeEvent(input$default_tree, {
   
   
   query <- paste0("INSERT INTO tree_entry (fermer_ID, effect,Com_ID,crop_name,measure_unit,
-                  Disaster_event_id,age,lost,years_rep,units_red,years_rec,share_red,
+                  Disaster_event_id,lost,years_rep,units_red,years_rec,share_red,
                   St_y_inc,Rep_cost,Rec_cost,damages,loss) 
                   VALUES(",ferm_id,",'",affect,"',", com_id,",'",crop,"','",unit,"',
-                  ",dis_ev_id,",",age ,",",lost,",",replacement_tree,",",reduced_tree,",",recover_tree,",",share_red,",
+                  ",dis_ev_id,",",lost,",",replacement_tree,",",reduced_tree,",",recover_tree,",",share_red,",
                   ",P6,",",Q6,",",R6,",",damages,",",loss,")")
   print(query)
   dbGetQuery(mydb, query)

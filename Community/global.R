@@ -15,10 +15,10 @@ asset_list <- sort(c("","Asset1","Asset2","Other"))
 
 fields <- c("date","community","marz","description","disaster","name","affect",
             "crop","unit","lost", "reduced","reduction","replanting",
-            "trees","unit_tree","lost_tree","age_tree","replacement_tree","reduced_tree","recover_tree","reduction_tree",
-            "land","unit_land","all_units_land","damaged_land","damage_land","replcost_land","reprcost_land",
+            "trees","unit_tree","lost_tree","replacement_tree","reduced_tree","recover_tree","reduction_tree",
+            "land","unit_land","damaged_land","lost_land","replcost_land","reprcost_land",
             "asset","unit_asset","affected_asset","replcost_asset","reprcost_asset",
-            "livestock","age_livestock","weight_livestock","lost_livestock","injured_livestock","injury_livestock"
+            "livestock","lost_livestock","injured_livestock","injury_livestock"
             )
 
 jscode <- "

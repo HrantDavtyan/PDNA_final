@@ -50,6 +50,14 @@ body <- dashboardBody(useShinyjs(), extendShinyjs(text = jscode),tabItems(
   ),
   tabItem(tabName = "report",
           dataTableOutput("table")
+  ),
+  tabItem(tabName = "hrna",
+          tags$iframe(id = "googleform",
+                      src = 'https://docs.google.com/spreadsheets/d/1YxO4SEor1cDYcA2nBl-zFzNEkfD3TiWOYJ3a8rpxQ6E/edit?rm=minimal',
+                      width = "100%",
+                      height = 1000,
+                      frameborder = 0,
+                      marginheight = 0)
   )
 ),
 # Confirmation windows, reacting to "Use Defaults" click in all 5 categories
@@ -91,5 +99,21 @@ bsModal("custom_inputs_livestock","Custom Inputs","create_custom_livestock",well
     numericInput("replcost_livestock","Replacement cost / unit",min = 0, value = 0),
     numericInput("reccost_livestock","Recovery cost / unit",min = 0, value = 0),
     textInput("reason_livestock","Reason for custom", placeholder = "Explain why you decided to create custom"),
-    actionButton("custom_livestock", "Submit with customs")))
+    actionButton("custom_livestock", "Submit with customs"))),
+
+#################################################################
+### New code below
+#################################################################
+bsModal("custom_inputs_livestock_income","Custom Inputs","create_custom_livestock_income",wellPanel(
+    numericInput("styield_livestock","Standard yearly income", min = 0, value = 0),
+    fileInput("custom_inputs_livestock_income_file","Upload Calculations",placeholder = "No file selected")
+    )),
+bsModal("custom_inputs_livestock_income","Custom Inputs","create_custom_livestock_repl",wellPanel(
+    numericInput("replcost_livestock","Replacement cost / unit",min = 0, value = 0),
+    fileInput("custom_inputs_livestock_repl_file","Upload Calculations",placeholder = "No file selected")
+    )),
+bsModal("custom_inputs_livestock_income","Custom Inputs","create_custom_livestock_rec",wellPanel(
+    numericInput("reccost_livestock","Recovery cost / unit",min = 0, value = 0),
+    fileInput("custom_inputs_livestock_rec_file","Upload Calculations",placeholder = "No file selected")
+    ))
 )
